@@ -62,7 +62,7 @@ export default function ScorecardsPage() {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-6xl px-6 py-8">
+      <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <section className="rounded-xl border border-[var(--ff-border)] bg-[var(--background)] p-6 shadow-sm">
           <h1 className="text-2xl font-bold text-[var(--ff-navy)]">Platform Scorecards</h1>
           <p className="mt-2 text-sm text-[var(--ff-cool-gray)]">

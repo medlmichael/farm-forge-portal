@@ -63,7 +63,7 @@ export default function PortalPage() {
           <main className="p-3 sm:p-6">
             <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 shadow-sm">
               <p className="text-xs text-[#6b7280]">Athletes / Profile</p>
-              <h1 className="mt-1 text-3xl font-semibold">Athlete Profile</h1>
+              <h1 className="mt-1 text-2xl font-semibold sm:text-3xl">Athlete Profile</h1>
 
               <section className="mt-5 rounded-xl border border-[#e5e7eb] bg-[#f9fafb] p-5">
                 <div className="flex flex-wrap items-start justify-between gap-4">
@@ -78,7 +78,7 @@ export default function PortalPage() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
                     <button className="rounded-md border border-[#d1d5db] px-3 py-2 text-sm">Message Family</button>
                     <button className="rounded-md bg-[#2563eb] px-3 py-2 text-sm font-semibold text-white">Update Plan</button>
                   </div>

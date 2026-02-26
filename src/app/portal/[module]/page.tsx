@@ -439,10 +439,10 @@ export default async function PortalModulePage({ params }: Props) {
 
       <div className="flex min-h-0 flex-1">
         <Sidebar active={module as PortalModuleKey} />
-        <main className="min-w-0 flex-1 p-3 sm:p-5">
-          <section className="mb-4 rounded-xl border border-[#e5e7eb] bg-white px-5 py-4">
+        <main className="min-w-0 flex-1 p-2 sm:p-5">
+          <section className="mb-4 rounded-xl border border-[#e5e7eb] bg-white px-3 py-3 sm:px-5 sm:py-4">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#6b7280]">{page.subtitle}</p>
-            <h1 className="mt-1 text-2xl font-bold text-[#111827]">{page.title}</h1>
+            <h1 className="mt-1 text-xl font-bold text-[#111827] sm:text-2xl">{page.title}</h1>
             <p className="mt-1 text-sm text-[#6b7280]">{page.description}</p>
           </section>
           <Screen module={module as PortalModuleKey} />
