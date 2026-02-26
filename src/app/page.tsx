@@ -80,7 +80,7 @@ export default function HubPage() {
         <div className="flex items-center gap-3">
           <FarmAndForgeLogo href="/" height={30} />
           <span className="hidden text-xs font-semibold uppercase tracking-widest text-[var(--ff-cool-gray)] sm:block">
-            Unified Tools Portal Demo
+            Platform Analysis
           </span>
         </div>
         <div className="flex items-center gap-3">

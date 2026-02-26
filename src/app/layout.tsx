@@ -7,7 +7,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Farm & Forge Club — Identity Demo",
+  title: "Farm & Forge Club — Platform Analysis",
   description: "Clerk federated identity across Farm & Forge Club: website, Club Automation, Mastery, ParentSquare, and more.",
 };
 
