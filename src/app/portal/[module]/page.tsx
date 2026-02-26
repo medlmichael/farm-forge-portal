@@ -422,6 +422,10 @@ export default async function PortalModulePage({ params }: Props) {
 
   if (!page) notFound();
 
+  const currentIndex = PORTAL_MODULES.findIndex((item) => item.key === (module as PortalModuleKey));
+  const prevModule = currentIndex > 0 ? PORTAL_MODULES[currentIndex - 1] : null;
+  const nextModule = currentIndex < PORTAL_MODULES.length - 1 ? PORTAL_MODULES[currentIndex + 1] : null;
+
   return (
     <div className="flex min-h-screen flex-col bg-[#f3f4f6]">
       <div className="h-1 w-full" style={{ background: page.accent }} />
@@ -440,6 +444,37 @@ export default async function PortalModulePage({ params }: Props) {
       <div className="flex min-h-0 flex-1">
         <Sidebar active={module as PortalModuleKey} />
         <main className="min-w-0 flex-1 p-2 sm:p-5">
+          <section className="mb-3 rounded-xl border border-[#e5e7eb] bg-white p-3 lg:hidden">
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-[#6b7280]">Module navigation</p>
+            <div className="flex gap-2 overflow-x-auto pb-1">
+              {PORTAL_MODULES.map((item) => (
+                <Link
+                  key={item.key}
+                  href={`/portal/${item.key}`}
+                  className={`whitespace-nowrap rounded-full border px-3 py-1.5 text-xs ${
+                    item.key === (module as PortalModuleKey)
+                      ? "border-[#2563eb] bg-[#e8eefc] font-semibold text-[#1d4ed8]"
+                      : "border-[#d1d5db] text-[#4b5563]"
+                  }`}
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-3 flex items-center justify-between text-xs">
+              {prevModule ? (
+                <Link href={`/portal/${prevModule.key}`} className="rounded-full border border-[#d1d5db] px-3 py-1.5 text-[#374151]">
+                  ← {prevModule.title}
+                </Link>
+              ) : <span />}
+              {nextModule ? (
+                <Link href={`/portal/${nextModule.key}`} className="rounded-full border border-[#d1d5db] px-3 py-1.5 text-[#374151]">
+                  {nextModule.title} →
+                </Link>
+              ) : null}
+            </div>
+          </section>
+
           <section className="mb-4 rounded-xl border border-[#e5e7eb] bg-white px-3 py-3 sm:px-5 sm:py-4">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#6b7280]">{page.subtitle}</p>
             <h1 className="mt-1 text-xl font-bold text-[#111827] sm:text-2xl">{page.title}</h1>
