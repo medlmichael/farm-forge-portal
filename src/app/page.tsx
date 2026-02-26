@@ -197,6 +197,14 @@ export default function HubPage() {
               </div>
             ))}
           </div>
+          <div className="mt-5 border-t border-[var(--ff-border)] pt-4">
+            <Link
+              href="/scorecards"
+              className="inline-flex items-center rounded-full border border-[var(--ff-navy)] px-4 py-2 text-sm font-semibold text-[var(--ff-navy)] transition-colors hover:bg-[var(--ff-navy)] hover:text-white"
+            >
+              View all vendor scorecards + overall chart →
+            </Link>
+          </div>
         </section>
 
         <div className="mt-4 overflow-hidden rounded-xl border border-[var(--ff-navy)]/20 bg-[var(--ff-navy)] shadow-sm">
