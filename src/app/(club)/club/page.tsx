@@ -30,17 +30,8 @@ export default function ClubDashboardPage() {
         </div>
       </div>
 
-      <section className="overflow-hidden rounded-xl border border-[var(--ff-border)] bg-[var(--background)] shadow-sm">
-        <div className="border-b border-[var(--ff-border)] bg-[var(--background-page)] px-4 py-2 text-xs text-[var(--ff-cool-gray)]">
-          Embedded preview (if allowed by Club Automation iframe policy)
-        </div>
-        <iframe
-          title="Club Automation"
-          src={CLUB_AUTOMATION_URL}
-          className="h-[75vh] w-full"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+      <section className="rounded-xl border border-[var(--ff-border)] bg-[var(--background)] p-5 text-sm text-[var(--ff-cool-gray)] shadow-sm">
+        Club Automation blocks iframe embedding. Use the <span className="font-semibold text-[var(--ff-navy)]">Open Club Automation ↗</span> button above to access the live portal.
       </section>
     </main>
   );
