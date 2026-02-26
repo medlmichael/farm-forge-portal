@@ -3,6 +3,8 @@ export type ScoreRow = {
   weight: number;
   score: number;
   notes: string;
+  vsClubAutomation?: "stronger" | "comparable" | "weaker" | "unknown";
+  vsClubAutomationNotes?: string;
 };
 
 export type VendorScorecard = {
@@ -25,48 +27,64 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
         weight: 15,
         score: 5,
         notes: "Supports onboarding/registration/waivers.",
+        vsClubAutomation: "comparable",
+        vsClubAutomationNotes: "Expected to be broadly similar for standard onboarding + waiver workflows.",
       },
       {
         category: "Scheduling + court booking complexity",
         weight: 20,
         score: 5,
         notes: "Supports conflicts, waitlists, recurring programs.",
+        vsClubAutomation: "comparable",
+        vsClubAutomationNotes: "Appears comparable on core scheduling depth from discovery notes.",
       },
       {
         category: "Parent/athlete communication workflows",
         weight: 15,
         score: 2,
         notes: "One-way only natively; two-way via API + third-party integration.",
+        vsClubAutomation: "weaker",
+        vsClubAutomationNotes: "Risk area for family engagement unless additional tools are integrated.",
       },
       {
         category: "Billing/subscriptions + refunds",
         weight: 15,
         score: 5,
         notes: "Strong operations support.",
+        vsClubAutomation: "comparable",
+        vsClubAutomationNotes: "Likely comparable for payments/subscriptions; confirm refund edge-case parity in pilot.",
       },
       {
         category: "Staff roles/permissions + auditability",
         weight: 10,
         score: 4,
         notes: "Role depth depends on selected package tier.",
+        vsClubAutomation: "unknown",
+        vsClubAutomationNotes: "Package-dependent; validate role granularity against your current Club Automation setup.",
       },
       {
         category: "Reporting quality",
         weight: 15,
         score: 2,
         notes: "Business-management focused; limited athlete-management analytics.",
+        vsClubAutomation: "weaker",
+        vsClubAutomationNotes: "Discovery indicates weaker native athlete reporting/visuals.",
       },
       {
         category: "API/export/data ownership",
         weight: 5,
         score: 4,
         notes: "API/export available at additional cost.",
+        vsClubAutomation: "comparable",
+        vsClubAutomationNotes: "Integration flexibility exists but with added API costs.",
       },
       {
         category: "Migration effort + support",
         weight: 5,
         score: 3,
         notes: "Migration help provided; rankings likely manual.",
+        vsClubAutomation: "weaker",
+        vsClubAutomationNotes: "Migration burden appears higher for athlete ranking/history fields.",
       },
     ],
     summary:

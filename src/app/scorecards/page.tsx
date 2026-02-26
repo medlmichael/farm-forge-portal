@@ -16,6 +16,13 @@ const STATUS_COLORS = {
   "pending-review": "bg-slate-100 text-slate-700 border-slate-200",
 } as const;
 
+const COMPARE_BADGE: Record<string, string> = {
+  stronger: "bg-green-100 text-green-700 border-green-200",
+  comparable: "bg-sky-100 text-sky-700 border-sky-200",
+  weaker: "bg-amber-100 text-amber-700 border-amber-200",
+  unknown: "bg-slate-100 text-slate-700 border-slate-200",
+};
+
 export default function ScorecardsPage() {
   const ranked = VENDOR_SCORECARDS.map((vendor) => ({
     ...vendor,
@@ -42,6 +49,9 @@ export default function ScorecardsPage() {
           <h1 className="text-2xl font-bold text-[var(--ff-navy)]">Platform Scorecards</h1>
           <p className="mt-2 text-sm text-[var(--ff-cool-gray)]">
             Side-by-side scoring to support client communication, platform selection, and status updates.
+          </p>
+          <p className="mt-1 text-xs text-[var(--ff-cool-gray)]">
+            Comparison tags are relative to the current baseline platform: <span className="font-semibold">Club Automation</span>.
           </p>
 
           <div className="mt-5 space-y-3">
@@ -84,6 +94,7 @@ export default function ScorecardsPage() {
                     <th className="py-2 pr-3 font-medium">Weight</th>
                     <th className="py-2 pr-3 font-medium">Score (1-5)</th>
                     <th className="py-2 pr-3 font-medium">Weighted</th>
+                    <th className="py-2 pr-3 font-medium">vs Club Automation</th>
                     <th className="py-2 font-medium">Notes</th>
                   </tr>
                 </thead>
@@ -94,6 +105,14 @@ export default function ScorecardsPage() {
                       <td className="py-2 pr-3 text-[var(--ff-cool-gray)]">{row.weight}%</td>
                       <td className="py-2 pr-3 text-[var(--ff-cool-gray)]">{row.score}</td>
                       <td className="py-2 pr-3 text-[var(--ff-cool-gray)]">{((row.weight / 100) * row.score).toFixed(2)}</td>
+                      <td className="py-2 pr-3 text-[var(--ff-cool-gray)]">
+                        <span className={`rounded-full border px-2 py-0.5 text-xs font-medium ${COMPARE_BADGE[row.vsClubAutomation ?? "unknown"]}`}>
+                          {(row.vsClubAutomation ?? "unknown").replace("-", " ")}
+                        </span>
+                        {row.vsClubAutomationNotes ? (
+                          <p className="mt-1 text-xs text-[var(--ff-cool-gray)]">{row.vsClubAutomationNotes}</p>
+                        ) : null}
+                      </td>
                       <td className="py-2 text-[var(--ff-cool-gray)]">{row.notes}</td>
                     </tr>
                   ))}
