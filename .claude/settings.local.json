@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:farmandforgeclub.com)",
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "WebFetch(domain:clubautomation.com)"
+    ]
+  }
+}
