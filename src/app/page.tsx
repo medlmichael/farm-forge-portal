@@ -228,9 +228,19 @@ export default function HubPage() {
       </main>
 
       <footer className="border-t border-[var(--ff-border)] px-6 py-5 text-center">
-        <p className="text-xs text-[var(--ff-cool-gray)]">
-          Concept demo for Farm & Forge unified tooling. Mastery and ParentSquare inbox are preserved as active examples.
-        </p>
+        <a
+          href="https://www.medlmobile.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-auto inline-flex items-center gap-2 text-xs font-medium text-[var(--ff-cool-gray)] hover:text-[var(--ff-navy)]"
+        >
+          <img
+            src="https://cdn-ilaldmp.nitrocdn.com/nQKmaoLBbzNjBUvhRSNijDyAbnJgsAXg/assets/images/optimized/rev-0887f9c/www.medlmobile.com/wp-content/uploads//2020/10/medl_logo_2025.svg"
+            alt="MEDL"
+            className="h-5 w-auto"
+          />
+          <span>Made with love by the modest geniuses at MEDL</span>
+        </a>
       </footer>
     </div>
   );
