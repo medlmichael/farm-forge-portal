@@ -57,6 +57,10 @@ export default function ScorecardsPage() {
           <div className="mt-5 space-y-3">
             {ranked.map((vendor) => {
               const width = vendor.outOf100 ?? 8;
+              const stronger = vendor.rows.filter((row) => row.vsClubAutomation === "stronger").length;
+              const comparable = vendor.rows.filter((row) => row.vsClubAutomation === "comparable").length;
+              const weaker = vendor.rows.filter((row) => row.vsClubAutomation === "weaker").length;
+
               return (
                 <div key={vendor.key} className="rounded-lg border border-[var(--ff-border)] p-4">
                   <div className="mb-2 flex items-center justify-between gap-3">
@@ -67,6 +71,11 @@ export default function ScorecardsPage() {
                   </div>
                   <div className="h-2 overflow-hidden rounded-full bg-slate-200">
                     <div className="h-full rounded-full bg-[var(--ff-green)]" style={{ width: `${width}%` }} />
+                  </div>
+                  <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-green-700">+{stronger} stronger</span>
+                    <span className="rounded-full border border-sky-200 bg-sky-50 px-2 py-0.5 text-sky-700">{comparable} comparable</span>
+                    <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-amber-700">{weaker} weaker</span>
                   </div>
                   <p className="mt-2 text-xs text-[var(--ff-cool-gray)]">
                     {vendor.outOf100 != null ? `${vendor.outOf100}/100` : "Pending scoring"} · {vendor.summary}
