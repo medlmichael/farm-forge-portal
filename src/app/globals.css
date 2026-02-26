@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/*
+  Farm & Forge Club — Where Character Meets Competition
+  Athletic club / youth development brand
+*/
+
+:root {
+  /* Primary brand */
+  --ff-green: #5ba672;           /* Farm green */
+  --ff-green-light: #7bc18f;     /* Support green */
+  --ff-gold: #c9a227;            /* Legacy gold accent */
+  --ff-forge: #fb8e28;           /* Forge orange accent */
+  --ff-navy: #0b1f3b;            /* Primary navy from main site */
+  --ff-cool-gray: #516179;       /* Secondary text */
+  --ff-light-neutral: #f4f5f7;   /* Page background */
+  --ff-warm-white: #ffffff;      /* Cards/panels */
+
+  /* Semantic */
+  --background: var(--ff-warm-white);
+  --background-page: var(--ff-light-neutral);
+  --foreground: var(--ff-navy);
+  --foreground-muted: var(--ff-cool-gray);
+  --ff-accent: var(--ff-green);
+  --ff-border: #e5e2dc;
+  --ff-restricted: #b91c1c;  /* For restricted/RBAC UI */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ff-green: var(--ff-green);
+  --color-ff-green-light: var(--ff-green-light);
+  --color-ff-gold: var(--ff-gold);
+  --color-ff-forge: var(--ff-forge);
+  --color-ff-border: var(--ff-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background-page);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
