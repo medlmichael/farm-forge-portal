@@ -11,6 +11,7 @@ export type VendorScorecard = {
   key: string;
   vendor: string;
   phase: "reviewed" | "in-progress" | "pending";
+  recommendedRole?: "core-ops" | "comms-layer" | "academic-layer" | "performance-layer" | "hybrid-layer" | "tbd";
   rows: ScoreRow[];
   summary: string;
   status: "strong-fit" | "conditional-fit" | "not-recommended" | "pending-review";
@@ -21,6 +22,7 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
     key: "ezfacility",
     vendor: "EZFacility",
     phase: "reviewed",
+    recommendedRole: "hybrid-layer",
     rows: [
       {
         category: "Member onboarding + registration + waivers",
@@ -95,6 +97,7 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
     key: "mastery",
     vendor: "Mastery (Instructure)",
     phase: "reviewed",
+    recommendedRole: "academic-layer",
     rows: [
       {
         category: "Member onboarding + registration + waivers",
@@ -169,6 +172,7 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
     key: "parentsquare",
     vendor: "ParentSquare",
     phase: "reviewed",
+    recommendedRole: "comms-layer",
     rows: [
       {
         category: "Member onboarding + registration + waivers",

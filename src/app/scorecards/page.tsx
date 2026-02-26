@@ -23,6 +23,24 @@ const COMPARE_BADGE: Record<string, string> = {
   unknown: "bg-slate-100 text-slate-700 border-slate-200",
 };
 
+const ROLE_LABELS: Record<string, string> = {
+  "core-ops": "Core ops",
+  "comms-layer": "Comms layer",
+  "academic-layer": "Academic layer",
+  "performance-layer": "Performance layer",
+  "hybrid-layer": "Hybrid layer",
+  tbd: "Role TBD",
+};
+
+const ROLE_COLORS: Record<string, string> = {
+  "core-ops": "bg-indigo-100 text-indigo-700 border-indigo-200",
+  "comms-layer": "bg-violet-100 text-violet-700 border-violet-200",
+  "academic-layer": "bg-blue-100 text-blue-700 border-blue-200",
+  "performance-layer": "bg-teal-100 text-teal-700 border-teal-200",
+  "hybrid-layer": "bg-emerald-100 text-emerald-700 border-emerald-200",
+  tbd: "bg-slate-100 text-slate-700 border-slate-200",
+};
+
 export default function ScorecardsPage() {
   const ranked = VENDOR_SCORECARDS.map((vendor) => ({
     ...vendor,
@@ -65,9 +83,14 @@ export default function ScorecardsPage() {
                 <div key={vendor.key} className="rounded-lg border border-[var(--ff-border)] p-4">
                   <div className="mb-2 flex items-center justify-between gap-3">
                     <p className="font-semibold text-[var(--ff-navy)]">{vendor.vendor}</p>
-                    <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${STATUS_COLORS[vendor.status]}`}>
-                      {STATUS_LABELS[vendor.status]}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${ROLE_COLORS[vendor.recommendedRole ?? "tbd"]}`}>
+                        {ROLE_LABELS[vendor.recommendedRole ?? "tbd"]}
+                      </span>
+                      <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${STATUS_COLORS[vendor.status]}`}>
+                        {STATUS_LABELS[vendor.status]}
+                      </span>
+                    </div>
                   </div>
                   <div className="h-2 overflow-hidden rounded-full bg-slate-200">
                     <div className="h-full rounded-full bg-[var(--ff-green)]" style={{ width: `${width}%` }} />
