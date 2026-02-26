@@ -40,7 +40,7 @@ export default function PortalPage() {
         </aside>
 
         <section className="flex min-w-0 flex-1 flex-col">
-          <header className="flex items-center justify-between border-b border-[#e5e7eb] bg-white px-6 py-3">
+          <header className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e5e7eb] bg-white px-4 py-3 sm:px-6">
             <div className="flex items-center gap-3">
               <div className="h-7 w-7 rounded bg-[#0f172a]" />
               <nav className="hidden items-center gap-4 text-xs text-[#6b7280] md:flex">
@@ -60,7 +60,7 @@ export default function PortalPage() {
             </Link>
           </header>
 
-          <main className="p-6">
+          <main className="p-3 sm:p-6">
             <div className="rounded-xl border border-[#e5e7eb] bg-white p-6 shadow-sm">
               <p className="text-xs text-[#6b7280]">Athletes / Profile</p>
               <h1 className="mt-1 text-3xl font-semibold">Athlete Profile</h1>

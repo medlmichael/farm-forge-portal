@@ -50,8 +50,8 @@ export default function ScorecardsPage() {
 
   return (
     <div className="min-h-screen bg-[var(--background-page)]">
-      <header className="border-b border-[var(--ff-border)] bg-[var(--background)] px-6 py-4">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
+      <header className="border-b border-[var(--ff-border)] bg-[var(--background)] px-4 py-4 sm:px-6">
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <FarmAndForgeLogo href="/" height={30} />
             <span className="border-l border-[var(--ff-border)] pl-3 text-sm text-[var(--ff-cool-gray)]">Vendor scorecards</span>
@@ -83,7 +83,7 @@ export default function ScorecardsPage() {
                 <div key={vendor.key} className="rounded-lg border border-[var(--ff-border)] p-4">
                   <div className="mb-2 flex items-center justify-between gap-3">
                     <p className="font-semibold text-[var(--ff-navy)]">{vendor.vendor}</p>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center justify-end gap-2">
                       <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${ROLE_COLORS[vendor.recommendedRole ?? "tbd"]}`}>
                         {ROLE_LABELS[vendor.recommendedRole ?? "tbd"]}
                       </span>

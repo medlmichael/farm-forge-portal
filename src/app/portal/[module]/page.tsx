@@ -42,10 +42,10 @@ function Sidebar({ active }: { active: PortalModuleKey }) {
 
 function AppTopbar() {
   return (
-    <div className="mb-4 flex items-center justify-between rounded-xl border border-[#e5e7eb] bg-white px-4 py-3">
+    <div className="mb-4 flex items-center justify-between rounded-xl border border-[#e5e7eb] bg-white px-3 py-3 sm:px-4">
       <div className="flex items-center gap-3">
         <div className="h-6 w-6 rounded bg-[#111827]" />
-        <div className="flex gap-4 text-xs text-[#6b7280]">
+        <div className="hidden gap-4 text-xs text-[#6b7280] md:flex">
           <span className="font-semibold text-[#111827]">Farm & Forge</span>
           <span>Dashboard</span>
           <span>Athletes</span>
@@ -55,7 +55,7 @@ function AppTopbar() {
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <div className="h-8 w-40 rounded-full border border-[#e5e7eb] bg-[#f9fafb]" />
+        <div className="hidden h-8 w-40 rounded-full border border-[#e5e7eb] bg-[#f9fafb] sm:block" />
         <div className="h-8 w-8 rounded-full bg-[#2563eb]" />
       </div>
     </div>
@@ -66,7 +66,7 @@ function CalendarScreen() {
   return (
     <div className="rounded-xl border border-[#e5e7eb] bg-white p-4">
       <AppTopbar />
-      <div className="mb-3 flex items-center justify-between">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <div>
           <p className="text-[11px] text-[#6b7280]">Programming / Schedule</p>
           <h3 className="text-2xl font-semibold text-[#111827]">Class Schedule</h3>
@@ -98,7 +98,8 @@ function CalendarScreen() {
           </div>
         </div>
 
-        <div className="rounded-lg border border-[#e5e7eb]">
+        <div className="overflow-x-auto rounded-lg border border-[#e5e7eb]">
+          <div className="min-w-[620px]">
           <div className="grid grid-cols-7 border-b border-[#e5e7eb] text-[11px] text-[#9ca3af]">
             {['MON','TUE','WED','THU','FRI','SAT','SUN'].map((d) => (
               <div key={d} className="border-r border-[#eef2f7] px-2 py-2 last:border-r-0">{d}</div>
@@ -112,6 +113,7 @@ function CalendarScreen() {
                 {i % 7 === 0 && <div className="mt-1 rounded bg-green-100 px-1 py-0.5 text-[9px] text-green-700">10:00 AM P</div>}
               </div>
             ))}
+          </div>
           </div>
         </div>
 
@@ -423,10 +425,10 @@ export default async function PortalModulePage({ params }: Props) {
   return (
     <div className="flex min-h-screen flex-col bg-[#f3f4f6]">
       <div className="h-1 w-full" style={{ background: page.accent }} />
-      <header className="flex items-center justify-between border-b border-[#e5e7eb] bg-white px-6 py-4">
+      <header className="flex flex-wrap items-center justify-between gap-2 border-b border-[#e5e7eb] bg-white px-4 py-3 sm:px-6 sm:py-4">
         <div className="flex items-center gap-3">
           <FarmAndForgeLogo href="/" height={30} />
-          <span className="border-l border-[#e5e7eb] pl-3 text-sm text-[#6b7280]">Unified experience portal</span>
+          <span className="hidden border-l border-[#e5e7eb] pl-3 text-sm text-[#6b7280] sm:inline">Unified experience portal</span>
         </div>
         <div className="flex items-center gap-3">
           <Link href="/" className="rounded-full border border-[#d1d5db] px-4 py-1.5 text-xs font-medium text-[#374151] hover:bg-[#f3f4f6]">
@@ -437,7 +439,7 @@ export default async function PortalModulePage({ params }: Props) {
 
       <div className="flex min-h-0 flex-1">
         <Sidebar active={module as PortalModuleKey} />
-        <main className="min-w-0 flex-1 p-5">
+        <main className="min-w-0 flex-1 p-3 sm:p-5">
           <section className="mb-4 rounded-xl border border-[#e5e7eb] bg-white px-5 py-4">
             <p className="text-xs font-semibold uppercase tracking-wider text-[#6b7280]">{page.subtitle}</p>
             <h1 className="mt-1 text-2xl font-bold text-[#111827]">{page.title}</h1>
