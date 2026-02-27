@@ -319,6 +319,14 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
     status: "conditional-fit",
   },
   {
+    key: "exercisecom",
+    vendor: "Exercise.com",
+    phase: "in-progress",
+    rows: [],
+    summary: "Demo request submitted; awaiting follow-up and product walkthrough for scoring.",
+    status: "pending-review",
+  },
+  {
     key: "mindbody",
     vendor: "Mindbody",
     phase: "in-progress",
