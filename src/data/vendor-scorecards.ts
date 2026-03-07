@@ -10,7 +10,7 @@ export type ScoreRow = {
 export type VendorScorecard = {
   key: string;
   vendor: string;
-  phase: "reviewed" | "in-progress" | "pending";
+  phase: "reviewed" | "in-progress" | "pending" | "trial-pending" | "hands-on-trial";
   recommendedRole?: "core-ops" | "comms-layer" | "academic-layer" | "performance-layer" | "hybrid-layer" | "tbd";
   rows: ScoreRow[];
   summary: string;
@@ -415,6 +415,26 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
     phase: "pending",
     rows: [],
     summary: "Pending available trial slot.",
+    status: "pending-review",
+  },
+  {
+    key: "jonasclub",
+    vendor: "Jonas Club",
+    phase: "trial-pending",
+    recommendedRole: "core-ops",
+    rows: [],
+    summary:
+      "Demo requested via schedule form (rutvi@medlmobile.com). Awaiting sales contact to complete guided product eval. Core-ops fit pending validation of scheduling, memberships, billing, reporting, and integrations. No self-serve trial found.",
+    status: "conditional-fit",
+  },
+  {
+    key: "teambuildr",
+    vendor: "TeamBuildr OS",
+    phase: "hands-on-trial",
+    recommendedRole: "performance-layer",
+    rows: [],
+    summary:
+      "Self-serve trial started (rutvi@medlmobile.com). Reached onboarding with business name Farm & Forge Club. Next: finish onboarding and score core workflows (booking, memberships, payments, reporting, admin UX). Performance-ops candidate.",
     status: "pending-review",
   },
 ];

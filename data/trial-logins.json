@@ -19,6 +19,11 @@
   ],
   "reviewGroups": [
     {
+      "label": "Active trials",
+      "status": "in-trial",
+      "portals": ["TeamBuildr OS"]
+    },
+    {
       "label": "Booked demos",
       "status": "booked",
       "portals": ["CourtReserve"]
@@ -26,7 +31,7 @@
     {
       "label": "Submitted / awaiting response",
       "status": "submitted",
-      "portals": ["Teamworks"]
+      "portals": ["Teamworks", "Jonas Club"]
     },
     {
       "label": "Discovery completed",

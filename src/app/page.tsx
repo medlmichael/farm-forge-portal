@@ -67,6 +67,7 @@ const STAFF_HUB = {
 
 const STATUS_STYLES: Record<string, string> = {
   booked: "border-green-200 bg-green-50 text-green-700",
+  "in-trial": "border-emerald-200 bg-emerald-50 text-emerald-700",
   submitted: "border-sky-200 bg-sky-50 text-sky-700",
   completed: "border-violet-200 bg-violet-50 text-violet-700",
   pending: "border-amber-200 bg-amber-50 text-amber-700",
