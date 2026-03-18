@@ -48,6 +48,43 @@ export default function ScorecardsPage() {
     outOf100: scoreOutOf100(vendor.rows),
   })).sort((a, b) => (b.outOf100 ?? -1) - (a.outOf100 ?? -1));
 
+  const evaluated = ranked.filter((vendor) => vendor.rows.length > 0);
+  const notYetEvaluated = ranked.filter((vendor) => vendor.rows.length === 0);
+
+  const renderVendorCard = (vendor: (typeof ranked)[number]) => {
+    const width = vendor.outOf100 ?? 8;
+    const stronger = vendor.rows.filter((row) => row.vsClubAutomation === "stronger").length;
+    const comparable = vendor.rows.filter((row) => row.vsClubAutomation === "comparable").length;
+    const weaker = vendor.rows.filter((row) => row.vsClubAutomation === "weaker").length;
+
+    return (
+      <div key={vendor.key} className="rounded-lg border border-[var(--ff-border)] p-4">
+        <div className="mb-2 flex items-center justify-between gap-3">
+          <p className="font-semibold text-[var(--ff-navy)]">{vendor.vendor}</p>
+          <div className="flex flex-wrap items-center justify-end gap-2">
+            <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${ROLE_COLORS[vendor.recommendedRole ?? "tbd"]}`}>
+              {ROLE_LABELS[vendor.recommendedRole ?? "tbd"]}
+            </span>
+            <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${STATUS_COLORS[vendor.status]}`}>
+              {STATUS_LABELS[vendor.status]}
+            </span>
+          </div>
+        </div>
+        <div className="h-2 overflow-hidden rounded-full bg-slate-200">
+          <div className="h-full rounded-full bg-[var(--ff-green)]" style={{ width: `${width}%` }} />
+        </div>
+        <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+          <span className="rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-green-700">+{stronger} stronger</span>
+          <span className="rounded-full border border-sky-200 bg-sky-50 px-2 py-0.5 text-sky-700">{comparable} comparable</span>
+          <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-amber-700">{weaker} weaker</span>
+        </div>
+        <p className="mt-2 text-xs text-[var(--ff-cool-gray)]">
+          {vendor.outOf100 != null ? `${vendor.outOf100}/100` : "Pending scoring"} · {vendor.summary}
+        </p>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-[var(--background-page)]">
       <header className="border-b border-[var(--ff-border)] bg-[var(--background)] px-4 py-4 sm:px-6">
@@ -72,44 +109,34 @@ export default function ScorecardsPage() {
             Comparison tags are relative to the current baseline platform: <span className="font-semibold">Club Automation</span>.
           </p>
 
-          <div className="mt-5 space-y-3">
-            {ranked.map((vendor) => {
-              const width = vendor.outOf100 ?? 8;
-              const stronger = vendor.rows.filter((row) => row.vsClubAutomation === "stronger").length;
-              const comparable = vendor.rows.filter((row) => row.vsClubAutomation === "comparable").length;
-              const weaker = vendor.rows.filter((row) => row.vsClubAutomation === "weaker").length;
+          <div className="mt-5 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-lg border border-[var(--ff-border)] p-4">
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <h2 className="text-base font-semibold text-[var(--ff-navy)]">Evaluated</h2>
+                <span className="rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700">
+                  {evaluated.length}
+                </span>
+              </div>
+              <div className="space-y-3">
+                {evaluated.map(renderVendorCard)}
+              </div>
+            </div>
 
-              return (
-                <div key={vendor.key} className="rounded-lg border border-[var(--ff-border)] p-4">
-                  <div className="mb-2 flex items-center justify-between gap-3">
-                    <p className="font-semibold text-[var(--ff-navy)]">{vendor.vendor}</p>
-                    <div className="flex flex-wrap items-center justify-end gap-2">
-                      <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${ROLE_COLORS[vendor.recommendedRole ?? "tbd"]}`}>
-                        {ROLE_LABELS[vendor.recommendedRole ?? "tbd"]}
-                      </span>
-                      <span className={`rounded-full border px-2.5 py-0.5 text-xs font-medium ${STATUS_COLORS[vendor.status]}`}>
-                        {STATUS_LABELS[vendor.status]}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="h-2 overflow-hidden rounded-full bg-slate-200">
-                    <div className="h-full rounded-full bg-[var(--ff-green)]" style={{ width: `${width}%` }} />
-                  </div>
-                  <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                    <span className="rounded-full border border-green-200 bg-green-50 px-2 py-0.5 text-green-700">+{stronger} stronger</span>
-                    <span className="rounded-full border border-sky-200 bg-sky-50 px-2 py-0.5 text-sky-700">{comparable} comparable</span>
-                    <span className="rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-amber-700">{weaker} weaker</span>
-                  </div>
-                  <p className="mt-2 text-xs text-[var(--ff-cool-gray)]">
-                    {vendor.outOf100 != null ? `${vendor.outOf100}/100` : "Pending scoring"} · {vendor.summary}
-                  </p>
-                </div>
-              );
-            })}
+            <div className="rounded-lg border border-[var(--ff-border)] p-4">
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <h2 className="text-base font-semibold text-[var(--ff-navy)]">Not yet evaluated</h2>
+                <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-xs font-medium text-slate-700">
+                  {notYetEvaluated.length}
+                </span>
+              </div>
+              <div className="space-y-3">
+                {notYetEvaluated.map(renderVendorCard)}
+              </div>
+            </div>
           </div>
         </section>
 
-        {ranked.filter((v) => v.rows.length > 0).map((vendor) => (
+        {evaluated.map((vendor) => (
           <section key={vendor.key} className="mt-6 rounded-xl border border-[var(--ff-border)] bg-[var(--background)] p-6 shadow-sm">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
               <h2 className="text-xl font-semibold text-[var(--ff-navy)]">{vendor.vendor}</h2>
