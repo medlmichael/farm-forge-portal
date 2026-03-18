@@ -319,6 +319,26 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
     status: "conditional-fit",
   },
   {
+    key: "blackbaud",
+    vendor: "Blackbaud",
+    phase: "trial-pending",
+    recommendedRole: "academic-layer",
+    rows: [],
+    summary:
+      "Under evaluation for academics / school system workflows. Current path appears sales-led (demo/contact) rather than a clean self-serve trial. Need product walkthrough and validation of SIS/LMS/admissions fit for Farm & Forge.",
+    status: "pending-review",
+  },
+  {
+    key: "coachnow",
+    vendor: "CoachNow",
+    phase: "hands-on-trial",
+    recommendedRole: "performance-layer",
+    rows: [],
+    summary:
+      "Self-serve signup started with rutvi@medlmobile.com and advanced into onboarding. Best-fit hypothesis is development / coaching + performance workflows. Need hands-on scoring for coaching UX, athlete communication, content/program structure, and admin setup depth.",
+    status: "pending-review",
+  },
+  {
     key: "exercisecom",
     vendor: "Exercise.com",
     phase: "in-progress",
@@ -400,6 +420,16 @@ export const VENDOR_SCORECARDS: VendorScorecard[] = [
     summary:
       "Strong for fitness/wellness and marketplace exposure (3.7M+ users), marketing automation, and reporting. Weak on court booking and multi-waiver; expensive at scale; data owned by Mindbody.",
     status: "conditional-fit",
+  },
+  {
+    key: "schooldoc",
+    vendor: "SchoolDoc",
+    phase: "trial-pending",
+    recommendedRole: "hybrid-layer",
+    rows: [],
+    summary:
+      "Under evaluation for compliance / forms + onboarding workflows. Sales/demo path identified; embedded request form showed validation friction during submission. Need demo access or sales follow-up plus scoring of forms, health/compliance workflows, onboarding, and parent/admin experience.",
+    status: "pending-review",
   },
   {
     key: "teamworks",
