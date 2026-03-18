@@ -21,7 +21,7 @@
     {
       "label": "Active trials",
       "status": "in-trial",
-      "portals": ["TeamBuildr OS"]
+      "portals": ["TeamBuildr OS", "CoachNow"]
     },
     {
       "label": "Booked demos",
@@ -31,7 +31,7 @@
     {
       "label": "Submitted / awaiting response",
       "status": "submitted",
-      "portals": ["Teamworks", "Jonas Club"]
+      "portals": ["Teamworks", "Jonas Club", "Blackbaud", "SchoolDoc"]
     },
     {
       "label": "Discovery completed",
