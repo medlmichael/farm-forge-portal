@@ -24,19 +24,14 @@
       "portals": ["TeamBuildr OS", "CoachNow"]
     },
     {
-      "label": "Booked demos",
-      "status": "booked",
-      "portals": ["CourtReserve"]
-    },
-    {
       "label": "Submitted / awaiting response",
       "status": "submitted",
       "portals": ["Teamworks", "Jonas Club", "Blackbaud", "SchoolDoc"]
     },
     {
-      "label": "Discovery completed",
+      "label": "Completed",
       "status": "completed",
-      "portals": ["Hello Club", "EZFacility", "Mindbody"]
+      "portals": ["CourtReserve", "Hello Club", "EZFacility", "Mindbody"]
     },
     {
       "label": "Pending available slot",
