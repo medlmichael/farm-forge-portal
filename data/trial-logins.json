@@ -15,6 +15,13 @@
       "category": "Family Communication",
       "status": "active",
       "path": "/parentsquare"
+    },
+    {
+      "id": "helloclub",
+      "name": "Hello Club",
+      "category": "Tennis Module",
+      "status": "completed",
+      "path": "/scorecards#helloclub"
     }
   ],
   "reviewGroups": [

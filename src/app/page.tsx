@@ -15,6 +15,16 @@ const PORTALS = [
     accentHex: "#0b1f3b",
   },
   {
+    id: "scorecards",
+    name: "Vendor scorecards",
+    sub: "Comparison hub",
+    platform: "Research + selection",
+    description: "Side-by-side vendor analysis, recommendation roles, and trial status for every platform under review.",
+    href: "/scorecards",
+    external: false,
+    accentHex: "#fb8e28",
+  },
+  {
     id: "club",
     name: "Club Automation",
     sub: "Operations + scheduling",

@@ -137,7 +137,7 @@ export default function ScorecardsPage() {
         </section>
 
         {evaluated.map((vendor) => (
-          <section key={vendor.key} className="mt-6 rounded-xl border border-[var(--ff-border)] bg-[var(--background)] p-6 shadow-sm">
+          <section id={vendor.key} key={vendor.key} className="mt-6 rounded-xl border border-[var(--ff-border)] bg-[var(--background)] p-6 shadow-sm">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
               <h2 className="text-xl font-semibold text-[var(--ff-navy)]">{vendor.vendor}</h2>
               <div className="text-sm font-medium text-[var(--ff-cool-gray)]">
